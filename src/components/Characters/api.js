@@ -8,4 +8,4 @@ async function getCharacters() {
   return data.results;
 }
 
-export { getCharacters };
+export default { getCharacters };

@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
-import { getCharacters } from "./api";
+import Api from "./api";
 
 function Characters() {
   const [characters, setCharacters] = useState([]);
 
   async function loadCharacters() {
-    const data = await getCharacters();
+    const data = await Api.getCharacters();
+    console.log(data);
+
     setCharacters(data);
   }
 
@@ -17,8 +19,8 @@ function Characters() {
     <div>
       <h3>Rick and Morty Characters</h3>
       <ul>
-        {characters?.map((character) => (
-          <li>{character.name}</li>
+        {characters.map((character) => (
+          <li key={character.id}>{character.name}</li>
         ))}
       </ul>
     </div>
